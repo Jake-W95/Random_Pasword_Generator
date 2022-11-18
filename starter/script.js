@@ -90,7 +90,21 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions(){
+var promptLength = prompt('Password Length: (Passwords MUST be between 10 and 60 characters long)')
+var confSpex = confirm('Include special characters?')
+var confNums = confirm('Include numbers?')
+var confCaps = confirm('Include upper-case characters?')
+var confLowC = confirm('Include lower-case characters?')
+var passwordOptions = {
+  Length: promptLength,
+  specials: confSpex,
+  numbers: confNums,
+  capitals: confCaps,
+  lower_case: confLowC
 
+}
+
+var specialChars = 
 }
 
 // Function for getting a random element from an array
