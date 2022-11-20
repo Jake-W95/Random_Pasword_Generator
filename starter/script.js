@@ -87,8 +87,10 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-// password options object
 
+var options = []
+// password options object
+getPasswordOptions() //INITIAL CALL     !!!!!!!!!!111"£$£%$645656432425
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -117,25 +119,26 @@ function getPasswordOptions() {
     console.log(confLowC)
     return confLowC
   }
-var options = [getLength(),   getSpex(), getNums(), getCaps(), getLowC()]
-console.log(options)
-// return options
+options = [getLength(),   getSpex(), getNums(), getCaps(), getLowC()]
+console.log('array:options within getpasswordOptions: ', options)
+return options
 }
-// var opt = options
+console.log('without', options)
 
 
-// var passwordOptions = {
-//   Length: opt[0],
-//   specials: opt[1],
-//   numbers: opt[2],
-//   capitals: opt[3],
-//   lower_case: opt[4]
-// }
-// console.log(opt)
-// console.log(passwordOptions)
+// console.log('array(options) WITHOUT function(getPasswordOptions', getPasswordOptions())
+
+var pChoice = {
+  Length: options[0],
+  specials: options[1],
+  numbers: options[2],
+  capitals: options[3],
+  lower_case: options[4]
+}
+console.log('object', pChoice)
 
 
-getPasswordOptions()
+
 
 
 
