@@ -95,27 +95,27 @@ getPasswordOptions() //INITIAL CALL     !!!!!!!!!!111"£$£%$645656432425
 function getPasswordOptions() {
   function getLength() {
     var promptLength = prompt('Password Length: (Passwords MUST be between 10 and 60 characters long)');
-    console.log(promptLength);
+    console.log(promptLength, ':   input password length');
     return promptLength
   }
   function getSpex() {
     var confSpex = confirm('Include special characters?');
-    console.log(confSpex)
+    console.log(confSpex, ':   inc specials')
     return confSpex
   }
   function getNums() {
     var confNums = confirm('Include numbers?');
-    console.log(confNums)
+    console.log(confNums, ':   inc numbers');
     return confNums
   }
   function getCaps() {
     var confCaps = confirm('Include upper-case characters?');
-    console.log(confCaps)
+    console.log(confCaps, ':   inc caps');
     return confCaps
   }
   function getLowC() {
     var confLowC = confirm('Include lower-case characters?');
-    console.log(confLowC)
+    console.log(confLowC, ':   inc lowcase')
     return confLowC
   }
   options = [getLength(), getSpex(), getNums(), getCaps(), getLowC()]
@@ -130,7 +130,6 @@ var pChoice = { //Object containing user inputs\\
   capitals: options[3],
   lower_case: options[4]
 }
-console.log(pChoice)
 
 // Function for getting a random element from an array
 
@@ -140,40 +139,37 @@ function randomize(array) {
 }
 
 //Gives random index# for array
-function randIndexNum (objpara, array){ //requires object.parameter for true/false and array for array
+function randIndexNum(objpara, array) { //requires object.parameter for true/false and array for array
   if (objpara) {
     var i = 0;
     i = randomize(array);
     // console.log(i, 'i')
-    return i
+    return array[i]
   }
 }
+//password string declaration
+var passArray = [];
+// passArray.length = pChoice.length;
 
-console.log(randIndexNum(pChoice.specials, specialCharacters))
+console.log(pChoice.length)
 
-// console.log(randSpex())
+for (var j = 0; j < pChoice.length; j++) {
+  passArray += randIndexNum(pChoice.specials, specialCharacters);
+  passArray += randIndexNum(pChoice.numbers, numericCharacters);
+  passArray += randIndexNum(pChoice.capitals, upperCasedCharacters);
+  passArray += randIndexNum(pChoice.lower_case, lowerCasedCharacters);
+
+}
+console.log(passArray, passArray.length, 'resulting array')
 
 
-// function randNum (){
-//   if (pChoice.numbers) {
-//   randomize(numericCharacters)
-// }}
-// function randCap(){
-//   if (pChoice.capitals){
-//     randomize(upperCasedCharacters);
-//     }
-// }
 
-// function randLowC() {
-//   if (pChoice.lower_case){
-//     randomize(lowerCasedCharacters);
-//   }
-// }
+
 
 
 // Function to generate password with user input
 
-var passString = []
+
 
 function generatePassword() {
 
