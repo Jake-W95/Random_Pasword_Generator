@@ -87,10 +87,9 @@ var lowerCasedCharacters = [
   'z'
 ];
 
-
 // password options object
 var options = []
-
+getPasswordOptions() //INITIAL CALL     !!!!!!!!!!111"£$£%$645656432425
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -120,30 +119,53 @@ function getPasswordOptions() {
     return confLowC
   }
   options = [getLength(), getSpex(), getNums(), getCaps(), getLowC()]
-  // console.log('array:options within getpasswordOptions: ', options)
   return options
-
 }
-// console.log('without', options)
 
 
-// console.log('array(options) WITHOUT function(getPasswordOptions', getPasswordOptions())
-
-var pChoice = {
+var pChoice = { //Object containing user inputs\\
   length: options[0],
   specials: options[1],
   numbers: options[2],
   capitals: options[3],
   lower_case: options[4]
 }
-console.log('object', pChoice)
-
-
+console.log(pChoice)
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-  arr[Math.floor(Math.random() * arr.length)]
+
+function randomize(array) {
+  randRes = Math.floor(Math.random() * array.length);
+  return randRes
 }
+
+//Gives random index# for array
+function randSpex (){
+  if (pChoice.specials) {
+    var i = 0;
+    i = randomize(specialCharacters);
+    console.log(i, 'i')
+    return i
+  }
+}
+console.log(randSpex())
+
+
+// function randNum (){
+//   if (pChoice.numbers) {
+//   randomize(numericCharacters)
+// }}
+// function randCap(){
+//   if (pChoice.capitals){
+//     randomize(upperCasedCharacters);
+//     }
+// }
+
+// function randLowC() {
+//   if (pChoice.lower_case){
+//     randomize(lowerCasedCharacters);
+//   }
+// }
 
 
 // Function to generate password with user input
@@ -151,31 +173,16 @@ function getRandom(arr) {
 var passString = []
 
 function generatePassword() {
-  password.length = pChoice.length;
-  if (pChoice.specials) {
-    passString += getRandom(specialCharacters)
-  }
-  if (pChoice.numbers) {
-    passString += getRandom(numericCharacters)
-  }
-  if (pChoice.capitals) {
-    passString += getRandom(upperCasedCharacters)
-  }
-  if (pChoice.lower_case) {
-    passString += getRandom(lowerCasedCharacters)
-  }
 
-  return passString
 }
 
-console.log('test generate', passString)
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  getPasswordOptions() //INITIAL CALL     !!!!!!!!!!111"£$£%$645656432425
 
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
@@ -185,3 +192,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+
