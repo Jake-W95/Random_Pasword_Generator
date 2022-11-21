@@ -140,15 +140,18 @@ function randomize(array) {
 }
 
 //Gives random index# for array
-function randSpex (){
-  if (pChoice.specials) {
+function randIndexNum (objpara, array){ //requires object.parameter for true/false and array for array
+  if (objpara) {
     var i = 0;
-    i = randomize(specialCharacters);
-    console.log(i, 'i')
+    i = randomize(array);
+    // console.log(i, 'i')
     return i
   }
 }
-console.log(randSpex())
+
+console.log(randIndexNum(pChoice.specials, specialCharacters))
+
+// console.log(randSpex())
 
 
 // function randNum (){
