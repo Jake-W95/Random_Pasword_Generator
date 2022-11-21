@@ -148,18 +148,33 @@ function randIndexNum(objpara, array) { //requires object.parameter for true/fal
   }
 }
 //password string declaration
-var passArray = [];
-// passArray.length = pChoice.length;
-
+var passArray = '';
 console.log(pChoice.length)
+console.log(randIndexNum(pChoice.specials, specialCharacters))
 
-for (var j = 0; j < pChoice.length; j++) {
-  passArray += randIndexNum(pChoice.specials, specialCharacters);
-  passArray += randIndexNum(pChoice.numbers, numericCharacters);
-  passArray += randIndexNum(pChoice.capitals, upperCasedCharacters);
-  passArray += randIndexNum(pChoice.lower_case, lowerCasedCharacters);
+
+var allChars =
+    [
+      randIndexNum(pChoice.specials, specialCharacters),
+      randIndexNum(pChoice.numbers, numericCharacters),
+      randIndexNum(pChoice.capitals, upperCasedCharacters),
+      randIndexNum(pChoice.lower_case, lowerCasedCharacters)
+    ]
+
+    console.log(randomize(allChars))
+// for (element of passArray) {
+for (i = 0; i < pChoice.length; i++) {
+
+  
+
+    
+  passArray += allChars[randomize(allChars)]
+  // passArray += ;
+  // passArray += ;
+
 
 }
+
 console.log(passArray, passArray.length, 'resulting array')
 
 
