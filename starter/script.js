@@ -86,9 +86,10 @@ var lowerCasedCharacters = [
   'y',
   'z'
 ];
-
 // password options object
 var options = []
+var passArray = '';
+
 getPasswordOptions() //INITIAL CALL     !!!!!!!!!!111"£$£%$645656432425
 
 // Function to prompt user for password options
@@ -122,7 +123,6 @@ function getPasswordOptions() {
   return options
 }
 
-
 var pChoice = { //Object containing user inputs\\
   length: options[0],
   specials: options[1],
@@ -130,61 +130,37 @@ var pChoice = { //Object containing user inputs\\
   capitals: options[3],
   lower_case: options[4]
 }
-
 // Function for getting a random element from an array
 
 function randomize(array) {
   randRes = Math.floor(Math.random() * array.length);
-  return randRes
+  return array[randRes]
 }
 
+console.log(randomize(numericCharacters), 'lcc')
 //Gives random index# for array
-function randIndexNum(objpara, array) { //requires object.parameter for true/false and array for array
-  if (objpara) {
-    var i = 0;
-    i = randomize(array);
-    // console.log(i, 'i')
-    return array[i]
-  }
-}
+
 //password string declaration
-var passArray = '';
-console.log(pChoice.length)
-console.log(randIndexNum(pChoice.specials, specialCharacters))
+
 
 
 var allChars =
     [
-      randIndexNum(pChoice.specials, specialCharacters),
-      randIndexNum(pChoice.numbers, numericCharacters),
-      randIndexNum(pChoice.capitals, upperCasedCharacters),
-      randIndexNum(pChoice.lower_case, lowerCasedCharacters)
+      specialCharacters,
+      numericCharacters,
+      upperCasedCharacters,
+      lowerCasedCharacters
     ]
 
-    console.log(randomize(allChars))
 // for (element of passArray) {
 for (i = 0; i < pChoice.length; i++) {
 
-  
-
-    
-  passArray += allChars[randomize(allChars)]
-  // passArray += ;
-  // passArray += ;
-
+  passArray += randomize(randomize(allChars));
 
 }
 
 console.log(passArray, passArray.length, 'resulting array')
-
-
-
-
-
-
 // Function to generate password with user input
-
-
 
 function generatePassword() {
 
@@ -206,5 +182,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
 
