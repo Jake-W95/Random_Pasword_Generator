@@ -144,13 +144,20 @@ console.log(randomize(numericCharacters), 'lcc')
 
 
 
-var allChars =
-    [
-      specialCharacters,
-      numericCharacters,
-      upperCasedCharacters,
-      lowerCasedCharacters
-    ]
+var allChars = []
+
+if (pChoice.specials) {
+  allChars.push(specialCharacters)
+};
+if (pChoice.numbers) {
+  allChars.push(numericCharacters)
+};
+if (pChoice.capitals) {
+  allChars.push(upperCasedCharacters)
+};
+if (pChoice.lower_case) {
+  allChars.push(lowerCasedCharacters)
+};
 
 // for (element of passArray) {
 for (i = 0; i < pChoice.length; i++) {
@@ -182,4 +189,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
