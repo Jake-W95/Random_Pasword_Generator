@@ -90,7 +90,6 @@ var lowerCasedCharacters = [
 var options = []
 var passArray = '';
 
-getPasswordOptions() //INITIAL CALL     !!!!!!!!!!111"£$£%$645656432425
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -138,11 +137,9 @@ function randomize(array) {
 }
 
 console.log(randomize(numericCharacters), 'lcc')
-//Gives random index# for array
+
 
 //password string declaration
-
-
 
 var allChars = []
 
@@ -159,17 +156,17 @@ if (pChoice.lower_case) {
   allChars.push(lowerCasedCharacters)
 };
 
-// for (element of passArray) {
-for (i = 0; i < pChoice.length; i++) {
 
-  passArray += randomize(randomize(allChars));
-
-}
 
 console.log(passArray, passArray.length, 'resulting array')
 // Function to generate password with user input
 
 function generatePassword() {
+
+  for (i = 0; i < pChoice.length; i++) {
+    passArray += randomize(randomize(allChars));
+  }
+
 
 }
 
@@ -180,7 +177,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-
+  getPasswordOptions();
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
