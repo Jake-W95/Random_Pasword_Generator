@@ -95,10 +95,25 @@ var allChars = []
 // Function to prompt user for password options
 function getPasswordOptions() {
   function getLength() {
-    var promptLength = prompt('Password Length: (Passwords MUST be between 10 and 60 characters long)');
-    console.log(promptLength, ':   input password length');
-    return promptLength
+    var promptLength = prompt(
+      'Password Length: (Passwords MUST be between 10 and 60 characters long)'
+    );
+
+    if (promptLength < 10) {
+      alert('Password must be longer than 10 characters');
+      return false;
+    } else if (promptLength > 64) {
+      alert('Password must be fewer than 64 characters');
+      return false
+    } else {
+      return Number(promptLength)
+    }
+
   }
+  if (getLength() == false){
+   return getPasswordOptions()
+  } 
+
   function getSpex() {
     var confSpex = confirm('Include special characters?');
     console.log(confSpex, ':   inc specials')
@@ -141,7 +156,7 @@ function getPasswordOptions() {
   if (pChoice.lower_case) {
     allChars.push(lowerCasedCharacters)
   };
-  
+
   return allChars;
 }
 
@@ -161,7 +176,7 @@ function generatePassword() {
   for (i = 0; i < pChoice.length; i++) {
     passArray += randomize(randomize(allChars));
   }
-return passArray;
+  return passArray;
 }
 
 // Get references to the #generate element
