@@ -101,8 +101,10 @@ function getPasswordOptions() {
 
     if (promptLength < 10) {
       alert('Password must be longer than 10 characters');
+      return getLength();
     } else if (promptLength > 64) {
       alert('Password must be fewer than 64 characters');
+      return getLength();
     } else {
       return Number(promptLength)
     }
@@ -155,6 +157,7 @@ function getPasswordOptions() {
 
   return allChars;
 }
+
 
 function randomize(array) {
   randRes = Math.floor(Math.random() * array.length);
