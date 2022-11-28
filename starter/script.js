@@ -101,18 +101,16 @@ function getPasswordOptions() {
 
     if (promptLength < 10) {
       alert('Password must be longer than 10 characters');
-      return false;
+      return getLength();
     } else if (promptLength > 64) {
       alert('Password must be fewer than 64 characters');
-      return false
+      return getLength();
     } else {
       return Number(promptLength)
     }
-
   }
-  if (getLength() == false){
-   return getPasswordOptions()
-  } 
+
+
 
   function getSpex() {
     var confSpex = confirm('Include special characters?');
@@ -159,6 +157,7 @@ function getPasswordOptions() {
 
   return allChars;
 }
+
 
 function randomize(array) {
   randRes = Math.floor(Math.random() * array.length);
