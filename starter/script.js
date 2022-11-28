@@ -88,8 +88,9 @@ var lowerCasedCharacters = [
 ];
 // password options object
 var options = []
-var passArray = '';
-
+var passArray = "";
+var pChoice
+var allChars = []
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -119,17 +120,30 @@ function getPasswordOptions() {
     return confLowC
   }
   options = [getLength(), getSpex(), getNums(), getCaps(), getLowC()]
-  return options
-}
+  pChoice = {
+    //Object containing user inputs\\
+    length: options[0],
+    specials: options[1],
+    numbers: options[2],
+    capitals: options[3],
+    lower_case: options[4]
+  }
 
-var pChoice = { //Object containing user inputs\\
-  length: options[0],
-  specials: options[1],
-  numbers: options[2],
-  capitals: options[3],
-  lower_case: options[4]
+  if (pChoice.specials) {
+    allChars.push(specialCharacters)
+  };
+  if (pChoice.numbers) {
+    allChars.push(numericCharacters)
+  };
+  if (pChoice.capitals) {
+    allChars.push(upperCasedCharacters)
+  };
+  if (pChoice.lower_case) {
+    allChars.push(lowerCasedCharacters)
+  };
+  
+  return allChars;
 }
-// Function for getting a random element from an array
 
 function randomize(array) {
   randRes = Math.floor(Math.random() * array.length);
@@ -137,26 +151,7 @@ function randomize(array) {
 }
 
 console.log(randomize(numericCharacters), 'lcc')
-
-
 //password string declaration
-
-var allChars = []
-
-if (pChoice.specials) {
-  allChars.push(specialCharacters)
-};
-if (pChoice.numbers) {
-  allChars.push(numericCharacters)
-};
-if (pChoice.capitals) {
-  allChars.push(upperCasedCharacters)
-};
-if (pChoice.lower_case) {
-  allChars.push(lowerCasedCharacters)
-};
-
-
 
 console.log(passArray, passArray.length, 'resulting array')
 // Function to generate password with user input
@@ -166,11 +161,8 @@ function generatePassword() {
   for (i = 0; i < pChoice.length; i++) {
     passArray += randomize(randomize(allChars));
   }
-
-
+return passArray;
 }
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
