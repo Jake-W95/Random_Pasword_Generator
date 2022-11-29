@@ -1,6 +1,7 @@
 # Random Password Generator
 
 ## A page using Javascript for generating a random password based on some user set parameters
+### URL: https://jake-w95.github.io/Random_Pasword_Generator/
 
 ## The motivation for this project was:
 - To utilize JavaScript functions effectively
